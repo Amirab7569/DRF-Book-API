@@ -25,7 +25,7 @@ class BookSerializer(serializers.ModelSerializer):
             rep.pop('body',None)
         return rep
         
-    # if srz valid : create in db 
+    # if srz valid : create in db : authomatic
     def create(self, validated_data):
         validated_data['author'] = CustomUser.objects.get(pk=self.context.get('request').user.id)
         return super().create(validated_data)

@@ -110,6 +110,7 @@ class BookDetail(RetrieveUpdateDestroyAPIView):
 
 class BooksModelViewSets(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
+    filterset_fields = ['author','is_published']
     permission_classes = [IsAuthenticatedOrReadOnly,IsAuthenticated]
     serializer_class = BookSerializer
     queryset = Book.objects.all()
