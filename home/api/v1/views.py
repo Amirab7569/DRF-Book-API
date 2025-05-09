@@ -13,6 +13,7 @@ from rest_framework.filters import SearchFilter, OrderingFilter
 from .serilizers import BookSerializer
 from ...models import Book
 from .permissions import IsOwnerOrReadOnly
+from .pagination import DefaultPagination
 
 
 """
@@ -116,5 +117,6 @@ class BooksModelViewSets(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     search_fields = ("is_published","title")
     ordering = ("-created_at")
+    pagination_class = DefaultPagination
     
     
