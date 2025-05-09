@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # Module
     'rest_framework', 
     'django_filters',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,15 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL = "home.CustomUser"
+
+# Documenting api
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
+    },
+    'USE_SESSION_AUTH': False,
+}
